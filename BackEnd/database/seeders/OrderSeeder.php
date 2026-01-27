@@ -23,31 +23,13 @@ class OrderSeeder extends Seeder
                 'total_price' => 499000
             ],
             [
-                'user_id' => 1,
-                'name' => 'Do Minh Nhat',
-                'phone' => '0912345678',
-                'address' => 'TP Hồ Chí Minh',
-                'order_status_id' => 1,
-                'ship_status_id' => 1,
-                'total_price' => 998000
-            ],
-            [
-                'user_id' => 3,
+                'user_id' => 2,
                 'name' => 'Truong Manh Cuong',
                 'phone' => '0912345678',
                 'address' => 'TP Hồ Chí Minh',
                 'order_status_id' => 1,
                 'ship_status_id' => 1,
                 'total_price' => 350000
-            ],
-            [
-                'user_id' => 4,
-                'name' => 'Nguyen Thanh Duong',
-                'phone' => '0912345678',
-                'address' => 'TP Hồ Chí Minh',
-                'order_status_id' => 1,
-                'ship_status_id' => 1,
-                'total_price' => 200000
             ],
         ];
 

@@ -11,10 +11,10 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         $data = [
-            ['name' => 'Áo thun', 'slug' => 'tee'],
-            ['name' => 'Quần', 'slug' => 'pants'],
-            ['name' => 'Áo khoác', 'slug' => 'jacket'],
-            ['name' => 'Giày', 'slug' => 'shoes'],
+            ['name' => 'Áo thun', 'slug' => 'ao-thun'],
+            ['name' => 'Quần', 'slug' => 'quan'],
+            ['name' => 'Giày', 'slug' => 'giay'],
+            ['name' => 'Phụ kiện', 'slug' => 'phu-kien'],
         ];
 
         foreach ($data as $item) {

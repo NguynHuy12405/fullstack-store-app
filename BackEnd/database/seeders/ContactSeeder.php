@@ -41,7 +41,7 @@ class ContactSeeder extends Seeder
             ],
             [
                 'name'=>'NameStore',
-                'url'=>'Fashtion Shop',
+                'url'=>'CH Store',
                 'status'=>true,
             ],
             [
