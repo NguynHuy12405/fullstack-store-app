@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+details>summary {
+    list-style: none;
+}
+
+details>summary::-webkit-details-marker {
+    display: none;
+}
+
+.checkbox-artist:checked+div {
+    background-color: black;
+    border-color: black;
+}
+
+.checkbox-artist:checked+div svg {
+    display: block;
+}
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
