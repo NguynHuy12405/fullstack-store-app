@@ -17,8 +17,8 @@ class ImportSeeder extends Seeder
         $data = [
             ['user_id' => 1, 'total_price' => 15000000],
             ['user_id' => 2, 'total_price' => 12000000],
-            ['user_id' => 3, 'total_price' => 18000000],
-            ['user_id' => 4, 'total_price' => 10000000],
+            ['user_id' => 1, 'total_price' => 18000000],
+            ['user_id' => 1, 'total_price' => 10000000],
         ];
 
         foreach ($data as $item) {

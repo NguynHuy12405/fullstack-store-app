@@ -15,8 +15,8 @@ class CartDetailSeeder extends Seeder
         $data = [
             ['user_id' => 1, 'variant_id' => 1, 'quantity' => 2],
             ['user_id' => 2, 'variant_id' => 2, 'quantity' => 1],
-            ['user_id' => 3, 'variant_id' => 3, 'quantity' => 3],
-            ['user_id' => 4, 'variant_id' => 4, 'quantity' => 1],
+            ['user_id' => 1, 'variant_id' => 3, 'quantity' => 3],
+            ['user_id' => 2, 'variant_id' => 4, 'quantity' => 1],
         ];
 
         foreach ($data as $item) {

@@ -12,8 +12,8 @@ class OrderDetailSeeder extends Seeder
        $data = [
             ['order_id' => 1, 'variant_id' => 1, 'quantity' => 1, 'price' => 499000],
             ['order_id' => 2, 'variant_id' => 1, 'quantity' => 2, 'price' => 499000],
-            ['order_id' => 3, 'variant_id' => 3, 'quantity' => 1, 'price' => 350000],
-            ['order_id' => 4, 'variant_id' => 4, 'quantity' => 1, 'price' => 200000],
+            ['order_id' => 1, 'variant_id' => 3, 'quantity' => 1, 'price' => 350000],
+            ['order_id' => 2, 'variant_id' => 4, 'quantity' => 1, 'price' => 200000],
         ];
 
         foreach ($data as $item) {
