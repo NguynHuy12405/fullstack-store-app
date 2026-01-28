@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             OrderStatusSeeder::class,
             OrderSeeder::class,
             OrderDetailSeeder::class,
+            TagSeeder::class,
             ProductTagSeeder::class,
             ReviewSeeder::class,
             SlideSeeder::class,
