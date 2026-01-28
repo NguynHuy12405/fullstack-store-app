@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\Admin\VariantController as AdminVariantController;
 use App\Http\Controllers\Api\ProductController as ApiProductController;
+use App\Http\Controllers\Api\AuthController;
 
 // Api products
 Route::prefix('products')->group(function () {
@@ -29,5 +30,4 @@ Route::prefix('products')->group(function () {
     Route::post('/', [AdminVariantController::class, 'store']);
     Route::put('{id}', [AdminVariantController::class, 'update']);
     Route::delete('{id}', [AdminVariantController::class, 'destroy']);
-
 });
