@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router";
-import DashBoard from "./pages/DashBoard";
+import HomePage from "./pages/HomePage";
 import GuestLayout from "./Layouts/GuestLayout";
 import UserLayout from "./Layouts/UserLayout";
 import AdminLayout from "./Layouts/AdminLayout";
@@ -33,7 +33,7 @@ function App() {
 
         {/* (Guest xem thoải mái) */}
         <Route element={<PublicLayout />}>
-          <Route path="/" element={<DashBoard />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/products" element={<ProductPage />} />
           <Route path="/products/:id" element={<ProductDetail />} />

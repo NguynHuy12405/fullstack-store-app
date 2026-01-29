@@ -18,7 +18,7 @@ class ProductController extends Controller
             ->where('status', 1)
             ->with([
                 'category:id,name,slug',
-                'brand:id,name,slug'
+                'brand:id,name,slug',
             ])
             ->withMin(['variants as min_price' => function ($q) {
                 $q->where('status', 1);
@@ -74,8 +74,8 @@ class ProductController extends Controller
                 'variants' => function ($q) {
                     $q->where('status', 1)
                       ->with([
-                          'color:id,name,hex_code',
-                          'size:id,name'
+                        'color:id,name,hex_code',
+                        'size:id,name'
                       ]);
                 }
             ])
@@ -87,7 +87,7 @@ class ProductController extends Controller
         return new ProductDetailResource($product);
     }
 
-    // GET /api/categories/{slug}/products
+    // GET /api/categories/{slug}
     public function byCategory($slug)
     {
         $category = Category::where('slug', $slug)->firstOrFail();
@@ -101,7 +101,7 @@ class ProductController extends Controller
         return ProductResource::collection($products);
     }
 
-    // GET /api/brands/{slug}/products
+    // GET /api/brands/{slug}
     public function byBrand($slug)
     {
         $brand = Brand::where('slug', $slug)->firstOrFail();
@@ -113,78 +113,5 @@ class ProductController extends Controller
             ->paginate(12);
 
         return ProductResource::collection($products);
-    }
-
-     // GET /api/admin/products
-    public function adminIndex()
-    {
-        $products = Product::with(['category', 'brand'])
-            ->latest()
-            ->paginate(15);
-
-        return response()->json($products);
-    }
-
-    // POST /api/admin/products
-    public function store(Request $request)
-    {
-        $data = $request->validate([
-            'name'        => 'required|string|max:255',
-            'slug'        => 'required|string|unique:products,slug',
-            'description' => 'nullable|string',
-            'thumbnail'   => 'nullable|string',
-            'category_id' => 'required|exists:categories,id',
-            'brand_id'    => 'required|exists:brands,id',
-            'status'      => 'required|boolean'
-        ]);
-
-        $product = Product::create($data);
-
-        return response()->json([
-            'message' => 'Product created successfully',
-            'data'    => $product
-        ], 201);
-    }
-
-    // GET /api/admin/products/{id}
-    public function showAdmin($id)
-    {
-        $product = Product::with(['variants.color', 'variants.size'])
-            ->findOrFail($id);
-
-        return response()->json($product);
-    }
-
-    // PUT /api/admin/products/{id}
-    public function update(Request $request, $id)
-    {
-        $product = Product::findOrFail($id);
-
-        $data = $request->validate([
-            'name'        => 'required|string|max:255',
-            'slug'        => 'required|string|unique:products,slug,' . $product->id,
-            'description' => 'nullable|string',
-            'thumbnail'   => 'nullable|string',
-            'category_id' => 'required|exists:categories,id',
-            'brand_id'    => 'required|exists:brands,id',
-            'status'      => 'required|boolean'
-        ]);
-
-        $product->update($data);
-
-        return response()->json([
-            'message' => 'Product updated successfully',
-            'data'    => $product
-        ]);
-    }
-
-    // DELETE /api/admin/products/{id}
-    public function destroy($id)
-    {
-        Product::findOrFail($id)->delete();
-
-        return response()->json([
-            'message' => 'Product deleted successfully'
-        ]);
     }
 }

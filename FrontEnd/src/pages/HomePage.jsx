@@ -5,7 +5,7 @@ import Banner from "../components/banner/Banner";
 import SectionHeader from "../components/SectionHeader";
 import ButtonLink from "../components/Button/ButtonLink";
 
-export default function DashBoard() {
+export default function HomePage() {
   
   return (
     <div className="bg-white min-h-screen font-sans text-[#0a0d1a]">

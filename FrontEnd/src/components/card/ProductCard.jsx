@@ -5,7 +5,7 @@ import { CreditCard, ShoppingCart, Star } from "lucide-react";
 export default function ProductCard({ product }) {
   const addToCart = useCartStore((state) => state.addToCart);
 
-  const image = product.image || "/no-image.png";
+  const image = product.thumbnail || "/no-image.png";
   const rating = Number(product.rating) || 0;
   const reviewCount = product.reviewCount ?? 0;
   const price = Number(product.price) || 0;
@@ -14,13 +14,12 @@ export default function ProductCard({ product }) {
 
   return (
     <div className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-200 overflow-hidden flex flex-col group">
-
       {/* IMAGE */}
       <div className="relative overflow-hidden aspect-square">
         <img
           src={image}
           alt={product.name}
-          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+          className="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-500"
         />
         {discount > 0 && (
           <div className="absolute top-2 right-2 bg-black/80 px-2 py-1 rounded-md text-xs font-bold text-white shadow-sm">
@@ -32,7 +31,7 @@ export default function ProductCard({ product }) {
       <div className="p-4 flex-1 flex flex-col">
         {/* CATEGORY */}
         <div className="text-xs text-gray-500 mb-1 uppercase tracking-wide">
-          {product.category}
+          {product.category?.name}
         </div>
         {/* NAME */}
         <h3 className="font-semibold text-gray-900 text-lg mb-2 line-clamp-2 transition-all">
