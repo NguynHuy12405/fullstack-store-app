@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Admin\VariantController as AdminVariantController;
 use App\Http\Controllers\Api\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Api\ProductController as ApiProductController;
+use App\Http\Controllers\Api\AuthController;
+
+Route::post('/login', [AuthController::class, 'login']);
 
 Route::prefix('products')->group(function () {
     // list

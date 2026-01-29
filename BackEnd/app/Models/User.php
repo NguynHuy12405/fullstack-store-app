@@ -10,8 +10,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
 use App\Models\CartDetail;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
-class User extends Authenticatable
+use Tymon\JWTAuth\Contracts\JWTSubject;
+class User extends Authenticatable implements JWTSubject
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, SoftDeletes;
@@ -53,6 +53,15 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
     }
 
     public function cartDetails(): HasMany
